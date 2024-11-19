@@ -19,7 +19,7 @@ public abstract class AbsCommon {
 
     public AbsCommon(WebDriver driver) {
         this.driver = driver;
-        this.webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(60));
         this.action = new Actions(driver);
 
         PageFactory.initElements(driver, this);

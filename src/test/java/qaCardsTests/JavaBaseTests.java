@@ -1,4 +1,4 @@
-package QACardsTests;
+package qaCardsTests;
 
 import factory.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -7,10 +7,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import pages.MainPage;
 import pages.courses.CoursPage;
-import pages.courses.QACoursesBasePage;
-import qaData.JavaBasic;
+import data.qaData.JavaBasic;
 
 public class JavaBaseTests {
     private WebDriver driver;
@@ -37,11 +35,9 @@ public class JavaBaseTests {
 
     @Test
     public void JavaBaseNameTest() {
-        MainPage cardsPage = new MainPage(driver);
-        cardsPage.open(path);
-        QACoursesBasePage javaBasePage = new QACoursesBasePage(driver);
-        javaBasePage.cardClick(JavaBasic.CARD_NAME.getSelector());
         CoursPage javaBasic = new CoursPage(driver);
+        javaBasic.open(path);
+        javaBasic.cardClick(JavaBasic.CARD_NAME);
         javaBasic.checkElement(JavaBasic.NAME.getSelector(), JavaBasic.NAME.getData());
         javaBasic.checkElement(JavaBasic.DISCRIPTION.getSelector(), JavaBasic.DISCRIPTION.getData());
         javaBasic.checkElement(JavaBasic.DURATION.getSelector(), JavaBasic.DURATION.getData());

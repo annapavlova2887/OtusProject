@@ -1,7 +1,9 @@
 package pages.courses;
+import data.qaData.JavaBasic;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.AbsBasePage;
 
 public class QACoursesBasePage extends AbsBasePage {
@@ -14,12 +16,14 @@ public class QACoursesBasePage extends AbsBasePage {
 
     public void countOfCourses() {
         assertCount(cardsSelector, countOfCourses);
+        logger.info("Количество курсов соответствует ожидаемому");
     }
 
-    public void cardClick (By selector) {
-        WebElement card = getElement(selector);
-        buttonClick(card);
+    public void cardClick(JavaBasic data) {
+        WebElement card = getElement(data.getSelector());
+        action.moveToElement(card);
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(card));
+        action.click(card);
+        action.perform();
     }
-
-
 }

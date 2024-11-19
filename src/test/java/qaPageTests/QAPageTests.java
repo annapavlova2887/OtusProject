@@ -1,3 +1,4 @@
+package qaPageTests;
 
 import factory.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -6,7 +7,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import pages.MainPage;
 import pages.courses.QACoursesBasePage;
 
 
@@ -36,11 +36,10 @@ public class QAPageTests {
 
     @Test
     public void CountOfCoursesTest() {
-        MainPage header = new MainPage(driver);
-        header.open(path);
-        header.educationClick();
-        header.qaClick();
         QACoursesBasePage qaBasePage = new QACoursesBasePage(driver);
+        qaBasePage.open(path);
+        qaBasePage.educationClick();
+        qaBasePage.qaClick();
         qaBasePage.countOfCourses();
     }
 }
